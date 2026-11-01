@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="Poppins, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cffafe"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="320" fill="url(#bg)"/>
+  <text x="300" y="50" text-anchor="middle" font-size="16" font-weight="700" fill="#155e75">CCTV Status Monitor · n8n</text>
+  <!-- ক্যামেরার গ্রিড -->
+  <g font-size="10" font-weight="600">
+    <rect x="70" y="70" width="140" height="90" rx="10" fill="#0f172a"/>
+    <circle cx="190" cy="86" r="5" fill="#22c55e"/>
+    <text x="82" y="150" fill="#e2e8f0">Branch 101 · Online</text>
+    <rect x="230" y="70" width="140" height="90" rx="10" fill="#0f172a"/>
+    <circle cx="350" cy="86" r="5" fill="#22c55e"/>
+    <text x="242" y="150" fill="#e2e8f0">Branch 102 · Online</text>
+    <rect x="390" y="70" width="140" height="90" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="510" cy="86" r="5" fill="#ef4444"/>
+    <text x="402" y="150" fill="#fecaca">Branch 103 · Offline</text>
+  </g>
+  <!-- অ্যালার্ট -->
+  <rect x="120" y="190" width="360" height="70" rx="14" fill="#ffffff" stroke="#a5f3fc"/>
+  <circle cx="156" cy="225" r="16" fill="#fee2e2"/>
+  <text x="156" y="231" text-anchor="middle" font-size="16" font-weight="800" fill="#dc2626">!</text>
+  <text x="184" y="218" font-size="13" font-weight="700" fill="#0f172a">Alert sent to IT team</text>
+  <text x="184" y="238" font-size="11" fill="#64748b">Camera at Branch 103 is offline · 09:42 AM</text>
+</svg>

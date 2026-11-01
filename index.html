@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- এই লাইনটা মোবাইলে সাইট ঠিকমতো দেখানোর জন্য জরুরি -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md Shoriful Islam | Portfolio</title>
+  <meta name="description" content="Md Shoriful Islam - Assistant Program Manager (IT), ICT Engineer, ERP, Automation & Software Development Specialist.">
+
+  <!-- সুন্দর ফন্ট (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS যুক্ত করা হলো (CDN থেকে) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- নিজের লেখা CSS ফাইল -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-slate-600">
+
+  <!-- পেছনের রঙিন আলো (শুধু সাজানোর জন্য) -->
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+  <div id="progress"></div>
+
+  <!-- দুই পাশের ফিক্সড সোশ্যাল লিংক (শুধু বড় স্ক্রিনে) -->
+  <div class="side-bar side-left hidden xl:flex">
+    <a href="https://github.com/aflu954" target="_blank" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.300-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.4-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.300 5 18.3 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg></a>
+    <a href="https://www.linkedin.com/in/md-shoriful-islam-164a667a" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2Zm1.8 13.1H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.700v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg></a>
+    <a href="mailto:afluaflu954@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg></a>
+    <a href="tel:+8801710367300" aria-label="Phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.900a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></a>
+  </div>
+  <div class="side-bar side-right hidden xl:flex">
+    <a href="mailto:afluaflu954@gmail.com" class="side-email">afluaflu954@gmail.com</a>
+  </div>
+
+  <!-- ================= 1. NAVBAR ================= -->
+  <nav id="navbar" class="fixed top-0 w-full z-50">
+    <!-- মোবাইল মেনু খোলা/বন্ধ: JavaScript ছাড়া, একটা লুকানো checkbox দিয়ে -->
+    <input type="checkbox" id="nav-toggle" class="peer hidden">
+    <div class="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 py-4 flex justify-between items-center">
+
+      <!-- লোগো / নাম -->
+      <a href="#home" class="text-2xl font-extrabold text-white tracking-tight">Shoriful<span class="gradient-text">.</span></a>
+
+      <!-- ডান পাশে: মেনু আর Hire Me এক সারিতে (বড় স্ক্রিনে) -->
+      <div class="hidden lg:flex items-center gap-6">
+        <!-- বড় স্ক্রিনের মেনু (মোবাইলে লুকানো থাকবে) -->
+        <ul class="flex gap-1 nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <!-- Hire Me চাপলে CV ডাউনলোড হবে -->
+        <a href="MD_Shoriful_Islam_CV.pdf" download class="btn-hire">Hire Me</a>
+      </div>
+
+      <!-- মোবাইলের মেনু বাটন (বড় স্ক্রিনে লুকানো থাকবে) -->
+      <label for="nav-toggle" id="menu-btn" class="lg:hidden text-white text-3xl cursor-pointer select-none" aria-label="Open menu">&#9776;</label>
+    </div>
+
+    <!-- মোবাইল মেনু: শুরুতে hidden, ☰ চাপলে checkbox টিক হয় আর মেনু দেখা যায় -->
+    <ul id="mobile-menu" class="hidden peer-checked:block lg:hidden mx-5 mb-4 p-4 space-y-3 glass rounded-2xl">
+      <li><a href="#home" class="block hover:text-blue-600">Home</a></li>
+      <li><a href="#about" class="block hover:text-blue-600">About</a></li>
+      <li><a href="#experience" class="block hover:text-blue-600">Experience</a></li>
+      <li><a href="#skills" class="block hover:text-blue-600">Skills</a></li>
+      <li><a href="#projects" class="block hover:text-blue-600">Projects</a></li>
+      <li><a href="#education" class="block hover:text-blue-600">Education</a></li>
+      <li><a href="#contact" class="block hover:text-blue-600">Contact</a></li>
+      <li><a href="MD_Shoriful_Islam_CV.pdf" download class="btn-hire inline-block">Hire Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================= 2. HERO ================= -->
+  <section id="home" class="relative min-h-screen flex items-center pt-28 pb-16 px-5 sm:px-8 lg:px-12">
+    <!-- নড়তে থাকা রঙিন আলো -->
+    <div class="aurora"><span></span><span></span><span></span></div>
+
+    <!-- মোবাইলে উপর-নিচে (flex-col), বড় স্ক্রিনে পাশাপাশি (md:flex-row) -->
+    <div class="max-w-[1320px] mx-auto w-full flex flex-col-reverse md:flex-row items-center gap-12">
+
+      <div class="flex-1 text-center md:text-left reveal">
+        <span class="badge badge-green">
+          <span class="dot"></span> Open to senior IT leadership roles
+        </span>
+        <p class="text-slate-400 mt-6 mb-1 text-lg">Hello, I'm</p>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight">
+          Md. Shoriful <span class="gradient-text">Islam</span>
+        </h1>
+        <h2 class="text-amber-400 text-lg md:text-2xl mt-3 font-semibold">
+          Assistant Program Manager (IT) · ICT Engineer
+        </h2>
+        <p class="text-slate-200 mt-4 text-xl md:text-2xl font-bold leading-snug">
+          Transforming Microfinance & Enterprise Operations Through
+          <span class="gradient-text">Technology, Data & Automation</span>
+        </p>
+        <p class="mt-4 max-w-xl mx-auto md:mx-0 text-slate-400 leading-relaxed">
+          14+ years of experience leading ERP operations, regulatory reporting, data analytics,
+          IT infrastructure, automation and digital transformation across 910+ branch offices
+          in Tangail, Bangladesh.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <!-- CV এর PDF টা এই ফোল্ডারে এই নামে রাখুন -->
+          <a href="MD_Shoriful_Islam_CV.pdf" download class="btn btn-gold">Download CV</a>
+          <a href="#contact" class="btn btn-outline">Contact Me</a>
+          <a href="#projects" class="btn btn-ghost">View Projects &rarr;</a>
+        </div>
+
+        <!-- কয়েকটা মূল সংখ্যা -->
+        <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl mx-auto md:mx-0">
+          <div class="stat-card c-blue"><p class="stat-num">14+</p><p class="stat-label">Years Experience</p></div>
+          <div class="stat-card c-green"><p class="stat-num">910+</p><p class="stat-label">Branch Offices</p></div>
+          <div class="stat-card c-amber"><p class="stat-num">25+</p><p class="stat-label">IT Team Led</p></div>
+          <div class="stat-card c-violet"><p class="stat-num">8,000+</p><p class="stat-label">ERP Users</p></div>
+        </div>
+      </div>
+
+      <!-- প্রোফাইল ছবি (GitHub থেকে নেওয়া) -->
+      <div class="relative reveal">
+        <div class="avatar-ring">
+          <img src="https://avatars.githubusercontent.com/u/294058633?v=4" alt="Md Shoriful Islam"
+               class="w-56 h-56 md:w-80 md:h-80 rounded-full object-cover">
+        </div>
+        <div class="float-chip top-4 -left-4 md:-left-10">ERP · Analytics · Automation</div>
+        <div class="float-chip bottom-8 -right-2 md:-right-8" style="animation-delay: 1.5s"><span class="dot inline-block mr-1"></span> Available for new opportunities</div>
+      </div>
+    </div>
+
+    <!-- নিচে স্ক্রল করার ইশারা -->
+    <a href="#about" class="scroll-hint hidden md:block" aria-label="Scroll down"></a>
+  </section>
+
+  <!-- ================= টুলস এর চলমান স্ট্রিপ ================= -->
+  <div class="tool-strip">
+    <p class="mono">Platforms &amp; tools I work with</p>
+    <div class="marquee">
+      <!-- একই লিস্ট দুইবার, যাতে লুপটা নিরবচ্ছিন্ন দেখায় -->
+      <div class="marquee-track"><span>Microfin360 ERP</span><span>ROBI HR & Admin ERP</span><span>MRA SIB</span><span>PKSF OLRS</span><span>MF-CIB</span><span>Power BI</span><span>SQL</span><span>Python</span><span>Pandas</span><span>n8n</span><span>Make.com</span><span>MERN Stack</span><span>Django</span><span>CCNA</span><span>bKash</span><span>Nagad</span><span>Microfin360 ERP</span><span>ROBI HR & Admin ERP</span><span>MRA SIB</span><span>PKSF OLRS</span><span>MF-CIB</span><span>Power BI</span><span>SQL</span><span>Python</span><span>Pandas</span><span>n8n</span><span>Make.com</span><span>MERN Stack</span><span>Django</span><span>CCNA</span><span>bKash</span><span>Nagad</span></div>
+    </div>
+  </div>
+
+  <!-- ================= 3. ABOUT ================= -->
+  <section id="about" class="band py-24 px-5 sm:px-8 lg:px-12">
+    <div class="max-w-[1320px] mx-auto">
+      <p class="section-kicker">01. About Me</p>
+      <h2 class="section-title">An IT leader built inside microfinance at scale</h2>
+
+      <div class="grid md:grid-cols-5 gap-8">
+        <div class="md:col-span-3 space-y-4 text-slate-600 leading-relaxed reveal">
+          <p>
+            I am an ICT Engineer and IT executive with <span class="text-slate-900 font-semibold">14+ years</span> at
+            Society for Social Service (SSS), one of Bangladesh's leading microfinance institutions.
+          </p>
+          <p>
+            I run the technology that keeps a national branch network moving — ERP operations, regulatory
+            reporting to MRA and PKSF, analytics, infrastructure, governance and automation — and I translate
+            it into measurable business outcomes.
+          </p>
+          <p>
+            I manage Microfin360 ERP, ROBI HR & Admin ERP for 8,000+ staff, and regulatory data for
+            MRA SIB, PKSF Cluster Data, PKSF OLRS and MF-CIB.
+          </p>
+          <p>
+            <span class="text-slate-900 font-semibold">Learning journey:</span>
+            AI Driven Data Analytics, n8n and Make.com automation, and MERN, Python and Django
+            through the Ostad platform and practical development.
+          </p>
+          <p>
+            <span class="text-slate-900 font-semibold">Career goal:</span>
+            to lead IT as Head of IT / ICT Director, combining ERP, data analytics, automation and
+            software development to build systems that help organisations grow.
+          </p>
+        </div>
+
+        <!-- ছোট তথ্য কার্ড -->
+        <div class="md:col-span-2 glass info-card rounded-2xl p-6 space-y-4 reveal">
+          <h3 class="info-title">Quick Facts</h3>
+          <div class="info-row"><span>Name</span><span>Md Shoriful Islam</span></div>
+          <div class="info-row"><span>Role</span><span>Asst. Program Manager (IT)</span></div>
+          <div class="info-row"><span>Company</span><span>Society for Social Service</span></div>
+          <div class="info-row"><span>Location</span><span>Tangail, Bangladesh</span></div>
+          <div class="info-row"><span>Languages</span><span>Bangla, English</span></div>
+          <div class="info-row"><span>Open to</span><span>Dhaka · Remote · Abroad</span></div>
+        </div>
+      </div>
+
+      <!-- ৪টা মূল ক্ষেত্র -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+        <div class="pillar c-blue reveal"><span>🏦</span><h3>Microfinance Technology</h3><p>ERP operations & regulatory reporting</p></div>
+        <div class="pillar c-green reveal"><span>📈</span><h3>Data Analytics</h3><p>Dashboards, SQL, Power BI, Python</p></div>
+        <div class="pillar c-amber reveal"><span>🛡️</span><h3>Infrastructure & Governance</h3><p>Networks, security, IT policy</p></div>
+        <div class="pillar c-violet reveal"><span>⚡</span><h3>Automation & Software</h3><p>n8n, Make.com, MERN, Django</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. EXPERIENCE ================= -->
+  <section id="experience" class="py-24 px-5 sm:px-8 lg:px-12">
+    <div class="max-w-[1320px] mx-auto">
+      <p class="section-kicker">02. Experience</p>
+      <h2 class="section-title">Leadership with national reach</h2>
+
+      <div class="glass rounded-3xl p-6 md:p-10 reveal">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-900">Assistant Program Manager (IT) / Maintenance Engineer (ICT)</h3>
+            <p class="text-blue-600 font-medium mt-1">Society for Social Service (SSS)</p>
+          </div>
+          <span class="badge whitespace-nowrap self-start md:self-center">Nov 2012 - Present</span>
+        </div>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <div class="stat-card px-6 c-green"><p class="stat-num">910</p><p class="stat-label">Branch offices</p></div>
+          <div class="stat-card px-6 c-amber"><p class="stat-num">25</p><p class="stat-label">IT team members</p></div>
+          <div class="stat-card px-6 c-violet"><p class="stat-num">8,000+</p><p class="stat-label">ERP users</p></div>
+        </div>
+
+        <!-- মোবাইলে ১ কলাম, বড় স্ক্রিনে ২ কলাম -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="duty-card c-blue"><div class="duty-icon">⚙️</div><div><h4>Microfin360 ERP</h4><p>Implementation, rollout, branch-level monitoring, user support and issue resolution.</p></div></div>
+          <div class="duty-card c-green"><div class="duty-icon">👥</div><div><h4>ROBI HR & Admin ERP</h4><p>Implementation and technical administration for 8,000+ staff.</p></div></div>
+          <div class="duty-card c-violet"><div class="duty-icon">📊</div><div><h4>Regulatory Data</h4><p>MRA SIB, PKSF Cluster Data, PKSF OLRS and MF-CIB validation and reporting; MRA financial database.</p></div></div>
+          <div class="duty-card c-amber"><div class="duty-icon">📈</div><div><h4>Dashboards & Reports</h4><p>Build dashboards and MIS/management reports for faster decisions.</p></div></div>
+          <div class="duty-card c-cyan"><div class="duty-icon">🌐</div><div><h4>Infrastructure & Network</h4><p>Branch IT and network operations, hardware, procurement support, security and surveillance.</p></div></div>
+          <div class="duty-card c-rose"><div class="duty-icon">🔒</div><div><h4>IT Security</h4><p>Cybersecurity measures, data protection protocols and IT governance guidelines.</p></div></div>
+          <div class="duty-card c-indigo"><div class="duty-icon">📱</div><div><h4>Digital Financial Services</h4><p>bKash and Nagad operations, recharge distribution and app-based collection.</p></div></div>
+          <div class="duty-card c-teal"><div class="duty-icon">🧭</div><div><h4>Strategy, Policy & Budget</h4><p>IT strategy, security policies, budget control, licensing and upgrades.</p></div></div>
+          <div class="duty-card c-orange"><div class="duty-icon">🏆</div><div><h4>Team Leadership</h4><p>Lead a 25-member IT support team serving 910 branch offices nationwide.</p></div></div>
+          <div class="duty-card c-pink"><div class="duty-icon">🎓</div><div><h4>Staff Training</h4><p>Conduct staff training programs and organization-wide technical support.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. SKILLS ================= -->
+  <section id="skills" class="band py-24 px-5 sm:px-8 lg:px-12">
+    <div class="max-w-[1320px] mx-auto">
+      <p class="section-kicker">03. Core Expertise</p>
+      <h2 class="section-title">Depth across the full enterprise IT stack</h2>
+
+      <!-- মোবাইলে ১ কলাম, ট্যাবলেটে ২, বড় স্ক্রিনে ৩ কলাম -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="skill-group c-blue reveal">
+          <h3>ERP & Microfinance Systems</h3>
+          <div class="chips">
+            <span>Microfin360 ERP</span><span>ROBI HR & Admin ERP</span><span>bKash & Nagad</span>
+          </div>
+        </div>
+        <div class="skill-group c-green reveal">
+          <h3>Regulatory Data Systems</h3>
+          <div class="chips">
+            <span>MRA SIB</span><span>PKSF Cluster Data</span><span>PKSF OLRS</span><span>MF-CIB</span><span>MRA Financial DB</span>
+          </div>
+        </div>
+        <div class="skill-group c-violet reveal">
+          <h3>Data Analytics</h3>
+          <div class="chips">
+            <span>Excel</span><span>SQL</span><span>Power BI</span><span>DAX</span><span>Python</span><span>Pandas</span><span>NumPy</span>
+          </div>
+        </div>
+        <div class="skill-group c-amber reveal">
+          <h3>Automation</h3>
+          <div class="chips">
+            <span>n8n</span><span>Make.com</span><span>API Integration</span><span>Webhooks</span>
+          </div>
+        </div>
+        <div class="skill-group c-cyan reveal">
+          <h3>Software Development</h3>
+          <div class="chips">
+            <span>MERN Stack</span><span>HTML5</span><span>CSS3</span><span>Tailwind CSS</span><span>JavaScript</span><span>Python</span><span>Django</span><span>Git & GitHub</span>
+          </div>
+        </div>
+        <div class="skill-group c-rose reveal">
+          <h3>Infrastructure & Networking</h3>
+          <div class="chips">
+            <span>CCNA</span><span>LAN / WAN</span><span>Wi-Fi</span><span>Surveillance</span><span>Security</span>
+          </div>
+        </div>
+        <div class="skill-group c-indigo reveal sm:col-span-2 lg:col-span-3">
+          <h3>Leadership</h3>
+          <div class="chips">
+            <span>IT Team Management</span><span>Budget Planning</span><span>Strategy</span><span>Governance</span><span>Staff Training</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- দক্ষতার মাত্রা (প্রোগ্রেস বার) -->
+      <h3 class="text-2xl font-bold text-slate-900 mt-16 mb-6">Proficiency at a glance</h3>
+      <div class="grid md:grid-cols-2 gap-x-10 gap-y-5 reveal">
+        <div class="bar c-blue"><div class="bar-label"><span>ERP Systems</span><span>95%</span></div><div class="bar-track"><div class="bar-fill" style="--w: 95%"></div></div></div>
+        <div class="bar c-violet"><div class="bar-label"><span>Data Analytics</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" style="--w: 90%"></div></div></div>
+        <div class="bar c-rose"><div class="bar-label"><span>Networking</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" style="--w: 90%"></div></div></div>
+        <div class="bar c-amber"><div class="bar-label"><span>Automation</span><span>88%</span></div><div class="bar-track"><div class="bar-fill" style="--w: 88%"></div></div></div>
+        <div class="bar c-cyan"><div class="bar-label"><span>Cybersecurity</span><span>82%</span></div><div class="bar-track"><div class="bar-fill" style="--w: 82%"></div></div></div>
+        <div class="bar c-green"><div class="bar-label"><span>Programming</span><span>80%</span></div><div class="bar-track"><div class="bar-fill" style="--w: 80%"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. PROJECTS ================= -->
+  <section id="projects" class="py-24 px-5 sm:px-8 lg:px-12">
+    <div class="max-w-[1320px] mx-auto">
+      <p class="section-kicker">04. Projects</p>
+      <h2 class="section-title">Things I have built</h2>
+
+      <!-- মোবাইলে ১ কলাম, ট্যাবলেটে ২, বড় স্ক্রিনে ৩ কলাম -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="project-card c-amber reveal">
+          <!-- প্রজেক্টের প্রিভিউ ছবি (images ফোল্ডার থেকে) -->
+          <img src="images/ai-automation.svg" alt="AI Automation Details preview" class="w-full h-48 object-cover">
+          <div class="p-6 flex flex-col flex-1">
+            <div class="chips mb-3"><span>n8n</span><span>Make.com</span><span>Automation</span></div>
+            <h3>AI Automation Details</h3>
+            <p class="mt-2">Notes and details of my workflow automation work with n8n and Make.com.</p>
+            <p class="project-result mt-3">&#10003; Repetitive tasks automated</p>
+            <div class="project-actions flex gap-3">
+              <a href="https://github.com/aflu954/AI-Automation-Details" target="_blank" class="btn-small btn-outline">Source Code</a>
+            </div>
+          </div>
+        </div>
+        <div class="project-card c-cyan reveal">
+          <!-- প্রজেক্টের প্রিভিউ ছবি (images ফোল্ডার থেকে) -->
+          <img src="images/camera-automation.svg" alt="Camera Monitoring Automation preview" class="w-full h-48 object-cover">
+          <div class="p-6 flex flex-col flex-1">
+            <div class="chips mb-3"><span>CCTV</span><span>n8n</span><span>Alerts</span></div>
+            <h3>Camera Monitoring Automation</h3>
+            <p class="mt-2">Automated status checks and alerts for branch CCTV surveillance systems.</p>
+            <p class="project-result mt-3">&#10003; Proactive security coverage</p>
+            <p class="project-note project-actions">Internal work project at SSS</p>
+          </div>
+        </div>
+        <div class="project-card c-indigo reveal">
+          <!-- প্রজেক্টের প্রিভিউ ছবি (images ফোল্ডার থেকে) -->
+          <img src="images/portfolio-website.svg" alt="Personal Portfolio Website preview" class="w-full h-48 object-cover">
+          <div class="p-6 flex flex-col flex-1">
+            <div class="chips mb-3"><span>HTML</span><span>CSS</span><span>Tailwind CSS</span></div>
+            <h3>Personal Portfolio Website</h3>
+            <p class="mt-2">This fully responsive portfolio, designed and built by me.</p>
+            <p class="project-result mt-3">&#10003; Responsive on mobile and desktop</p>
+            <div class="project-actions flex gap-3">
+              <a href="https://github.com/aflu954" target="_blank" class="btn-small btn-outline">Source Code</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. EDUCATION ================= -->
+  <section id="education" class="py-24 px-5 sm:px-8 lg:px-12">
+    <!-- মোবাইলে ১ কলাম, বড় স্ক্রিনে ২ কলাম -->
+    <div class="max-w-[1320px] mx-auto grid md:grid-cols-2 gap-12">
+
+      <div>
+        <p class="section-kicker">05. Education</p>
+        <h2 class="section-title">Education</h2>
+
+        <!-- টাইমলাইন: বাম পাশে একটা দাগ -->
+        <div class="timeline">
+          <div class="timeline-item c-blue reveal">
+            <p class="timeline-date">2017 · CGPA 3.16/4.00</p>
+            <h3>M.Engg. in Information & Communication Technology</h3>
+            <p>Mawlana Bhashani Science & Technology University</p>
+          </div>
+          <div class="timeline-item c-green reveal">
+            <p class="timeline-date">2012 · CGPA 3.06/4.00</p>
+            <h3>B.Sc. in Electronic & Telecommunication Engineering</h3>
+            <p>Daffodil International University</p>
+          </div>
+          <div class="timeline-item c-amber reveal">
+            <p class="timeline-date">2006 · GPA 4.20/5.00</p>
+            <h3>HSC (Science)</h3>
+            <p>General Mahmudul Hasan Adarsha College, Tangail</p>
+          </div>
+          <div class="timeline-item c-violet reveal">
+            <p class="timeline-date">2004 · GPA 4.69/5.00</p>
+            <h3>SSC (Science)</h3>
+            <p>Bindubasini Govt. Boys High School, Tangail</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="section-kicker">Training</p>
+        <h2 class="section-title">Certifications</h2>
+
+        <div class="space-y-4">
+          <div class="cert-card c-violet reveal"><span class="cert-icon">🧠</span><div><h3>AI Driven Data Analytics</h3><p>Professional course</p></div></div>
+          <div class="cert-card c-blue reveal"><span class="cert-icon">🎓</span><div><h3>CCNA (CCNA-1, 2, 3)</h3><p>Cisco Networking Academy, Daffodil International University</p></div></div>
+          <div class="cert-card c-green reveal"><span class="cert-icon">📋</span><div><h3>Software-based Monitoring & Supervision</h3><p>PKSF · 2024 · 4 days</p></div></div>
+          <div class="cert-card c-amber reveal"><span class="cert-icon">📡</span><div><h3>Microwave Array Antenna Design</h3><p>Daffodil International University · 2012 · 3 months</p></div></div>
+          <div class="cert-card c-cyan reveal"><span class="cert-icon">💻</span><div><h3>MERN Stack Development</h3><p>Ostad Platform</p></div></div>
+          <div class="cert-card c-rose reveal"><span class="cert-icon">⚡</span><div><h3>n8n Automation & Make.com</h3><p>Ostad Platform</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. CAREER OBJECTIVES ================= -->
+  <section id="career" class="band py-24 px-5 sm:px-8 lg:px-12">
+    <div class="max-w-[1320px] mx-auto">
+      <p class="section-kicker">06. Career Objectives</p>
+      <h2 class="section-title">Ready for the next leadership chapter</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="skill-group c-blue reveal">
+          <h3>Open to roles</h3>
+          <div class="chips">
+            <span>Head of IT</span><span>IT Manager</span><span>ICT Director</span><span>ERP Manager</span>
+            <span>Data Analytics Manager</span><span>Digital Transformation Lead</span><span>CIO</span>
+          </div>
+        </div>
+        <div class="skill-group c-green reveal">
+          <h3>Locations</h3>
+          <div class="chips">
+            <span>🇧🇩 Bangladesh</span><span>🇦🇪 UAE</span><span>🇺🇸 USA</span><span>🇨🇦 Canada</span>
+            <span>🇦🇺 Australia</span><span>🇪🇺 Europe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. CONTACT ================= -->
+  <section id="contact" class="py-24 px-5 sm:px-8 lg:px-12">
+    <div class="max-w-[1320px] mx-auto glass rounded-3xl p-6 md:p-12">
+      <!-- মোবাইলে ১ কলাম, বড় স্ক্রিনে ২ কলাম -->
+      <div class="grid md:grid-cols-2 gap-10">
+
+        <div class="reveal">
+          <p class="section-kicker">07. Contact</p>
+          <h2 class="section-title">Let's talk about your next IT initiative</h2>
+          <p class="mb-8 text-slate-600">Have a question or an opportunity? Send me a message.</p>
+
+          <div class="space-y-4">
+            <a href="mailto:afluaflu954@gmail.com" class="contact-row c-blue"><span class="contact-icon">✉️</span><span class="break-all">afluaflu954@gmail.com</span></a>
+            <a href="tel:+8801710367300" class="contact-row c-green"><span class="contact-icon">📞</span><span>+880 1710-367300</span></a>
+            <div class="contact-row c-rose"><span class="contact-icon">📍</span><span>Tangail, Bangladesh</span></div>
+            <a href="https://github.com/aflu954" target="_blank" class="contact-row c-ink"><span class="contact-icon">💻</span><span>github.com/aflu954</span></a>
+            <a href="https://www.linkedin.com/in/md-shoriful-islam-164a667a" target="_blank" class="contact-row c-linkedin"><span class="contact-icon">🔗</span><span class="break-all">linkedin.com/in/md-shoriful-islam-164a667a</span></a>
+          </div>
+        </div>
+
+        <!-- কন্টাক্ট ফর্ম: Send চাপলে ইমেইল অ্যাপ খুলবে (JavaScript ছাড়া, mailto দিয়ে) -->
+        <form action="mailto:afluaflu954@gmail.com" method="post" enctype="text/plain" class="space-y-4 reveal">
+          <input name="Name" type="text" placeholder="Your Name" class="input-box" required>
+          <input name="Email" type="email" placeholder="Your Email" class="input-box" required>
+          <input name="Subject" type="text" placeholder="Subject / Role" class="input-box">
+          <textarea name="Message" rows="6" placeholder="Your Message" class="input-box" required></textarea>
+          <button type="submit" class="btn btn-gold w-full">Send Message</button>
+          <p class="text-xs text-slate-500 text-center">Opens your email app with the message ready to send.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10. FOOTER ================= -->
+  <footer class="site-footer py-12 px-5 sm:px-8 lg:px-12 text-center">
+    <p class="text-2xl font-extrabold text-white">Shoriful<span class="gradient-text">.</span></p>
+    <p class="mt-2 italic text-slate-400">"Driving Digital Transformation Through Data, Technology & Innovation"</p>
+    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 my-5">
+      <a href="#home" class="text-slate-300 hover:text-white">Home</a>
+      <a href="#about" class="text-slate-300 hover:text-white">About</a>
+      <a href="#skills" class="text-slate-300 hover:text-white">Skills</a>
+      <a href="#projects" class="text-slate-300 hover:text-white">Projects</a>
+      <a href="#contact" class="text-slate-300 hover:text-white">Contact</a>
+      <a href="https://github.com/aflu954" target="_blank" class="text-slate-300 hover:text-white">GitHub</a>
+      <a href="https://www.linkedin.com/in/md-shoriful-islam-164a667a" target="_blank" class="text-slate-300 hover:text-white">LinkedIn</a>
+    </div>
+    <p class="text-sm text-slate-500 mono">Designed &amp; built by Md Shoriful Islam &middot; &copy; 2026</p>
+  </footer>
+
+  <!-- উপরে ফেরার বাটন -->
+  <a href="#home" id="to-top" aria-label="Back to top">↑</a>
+
+
+</body>
+</html>

@@ -1,0 +1,848 @@
+/* =========================================================
+   সূচিপত্র
+   1. রং ও বেসিক          6. Skills
+   2. বাটন                7. Projects
+   3. Navbar              8. Education
+   4. Hero                9. Contact ও Footer
+   5. About ও Experience  10. অ্যানিমেশন
+   ========================================================= */
+
+
+/* ================= 1. রং ও বেসিক ================= */
+
+/* পুরো সাইটের রং এক জায়গায় */
+:root {
+  --soft: #f8fafc;
+  --ink: #0f172a;       /* শিরোনাম */
+  --text: #475569;      /* সাধারণ লেখা */
+  --muted: #64748b;     /* হালকা লেখা */
+  --line: #e2e8f0;      /* বর্ডার */
+  --accent: #2563eb;    /* মূল নীল */
+  --tint: #eff6ff;      /* হালকা নীল */
+  --grad: linear-gradient(90deg, #2563eb, #7c3aed);
+}
+
+/* কার্ডের রং: HTML এ c-blue, c-green ... class দিলে --c রংটা বদলে যায় */
+.c-blue   { --c: #2563eb; --c-soft: #eff6ff; --c-line: #bfdbfe; }
+.c-green  { --c: #059669; --c-soft: #ecfdf5; --c-line: #a7f3d0; }
+.c-violet { --c: #7c3aed; --c-soft: #f5f3ff; --c-line: #ddd6fe; }
+.c-amber  { --c: #d97706; --c-soft: #fffbeb; --c-line: #fde68a; }
+.c-cyan   { --c: #0891b2; --c-soft: #ecfeff; --c-line: #a5f3fc; }
+.c-rose   { --c: #e11d48; --c-soft: #fff1f2; --c-line: #fecdd3; }
+.c-indigo { --c: #4f46e5; --c-soft: #eef2ff; --c-line: #c7d2fe; }
+.c-teal   { --c: #0d9488; --c-soft: #f0fdfa; --c-line: #99f6e4; }
+.c-orange { --c: #ea580c; --c-soft: #fff7ed; --c-line: #fed7aa; }
+.c-pink   { --c: #db2777; --c-soft: #fdf2f8; --c-line: #fbcfe8; }
+.c-ink    { --c: #0f172a; --c-soft: #f1f5f9; --c-line: #cbd5e1; }
+.c-linkedin { --c: #0a66c2; --c-soft: #e8f1fb; --c-line: #b6d4f2; }
+
+html {
+  scroll-behavior: smooth;   /* মেনুতে ক্লিক করলে ধীরে স্ক্রল */
+  scroll-padding-top: 80px;  /* navbar এর নিচে যেন শিরোনাম ঢাকা না পড়ে */
+}
+
+/* পাশের দিকে (horizontal) স্ক্রল বন্ধ */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--text);
+  background-color: #fbfcff;
+  /* হালকা ডট প্যাটার্ন */
+  background-image: radial-gradient(rgba(37, 99, 235, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* হালকা রঙের সেকশন */
+.band {
+  border-top: 1px solid #e6ecf5;
+  border-bottom: 1px solid #e6ecf5;
+}
+#about  { background: linear-gradient(180deg, #f0f7ff, #ffffff); }
+#skills { background: linear-gradient(180deg, #f6f3ff, #ffffff); }
+#career { background: linear-gradient(180deg, #ecfdf5, #ffffff); }
+
+/* রঙিন গ্রেডিয়েন্ট লেখা (চকচক করে নড়ে) */
+.gradient-text {
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4, #7c3aed, #2563eb);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+/* বড় স্ক্রিনে পেছনের ঝাপসা আলো */
+.glow {
+  display: none;
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
+.glow-1 { background: #60a5fa; top: -150px; left: -150px; }
+.glow-2 { background: #a78bfa; bottom: -200px; right: -150px; }
+@media (min-width: 1024px) {
+  .glow { display: block; }
+}
+
+/* সাদা কার্ড */
+.glass {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px -12px rgba(15, 23, 42, 0.12);
+}
+
+/* সেকশনের ছোট লেবেল (01. About Me) আর পাশের দাগ */
+.section-kicker {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--accent);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+.section-kicker::after {
+  content: "";
+  flex: 0 1 220px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(37, 99, 235, 0.5), transparent);
+}
+
+/* সেকশনের বড় শিরোনাম আর নিচের রঙিন দাগ */
+.section-title {
+  color: var(--ink);
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin-top: 14px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #fbbf24);
+}
+
+/* ছোট লেবেলগুলো monospace ফন্টে */
+.mono, .badge, .timeline-date {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ছোট গোল লেবেল (Nov 2012 - Present) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--accent);
+  background: var(--tint);
+  border: 1px solid #bfdbfe;
+}
+
+/* স্কিল ট্যাগ: কার্ডের রঙে */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.chips span {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--c);
+  background: var(--c-soft);
+  border: 1px solid var(--c-line);
+  transition: all 0.2s;
+}
+.chips span:hover {
+  color: #ffffff;
+  background: var(--c);
+  border-color: var(--c);
+}
+
+/* মোবাইলে শিরোনাম একটু ছোট */
+@media (max-width: 640px) {
+  .section-title { font-size: 1.8rem; }
+  .float-chip { font-size: 11px; padding: 6px 12px; }
+}
+
+
+/* ================= 2. বাটন ================= */
+
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.25s;
+}
+
+/* প্রজেক্ট কার্ডের ছোট বাটন */
+.btn-small {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+/* Navbar এর Hire Me */
+.btn-hire {
+  padding: 9px 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* সোনালি বাটন: Hire Me, Download CV, Send Message */
+.btn-gold,
+.btn-hire {
+  color: #1c1305;
+  background: linear-gradient(90deg, #fbbf24, #f97316, #fbbf24);
+  background-size: 200% auto;
+  box-shadow: 0 10px 30px -10px rgba(249, 115, 22, 0.7);
+  transition: all 0.4s;
+}
+.btn-gold:hover,
+.btn-hire:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px -10px rgba(249, 115, 22, 0.8);
+}
+
+/* বর্ডার দেওয়া বাটন */
+.btn-outline {
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  background: #ffffff;
+}
+.btn-outline:hover {
+  background: var(--tint);
+  transform: translateY(-2px);
+}
+
+
+/* ================= 3. Navbar ================= */
+
+#navbar {
+  background: rgba(11, 16, 38, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-link {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.2s;
+}
+.nav-link:hover { color: #ffffff; }
+
+/* উপরের প্রোগ্রেস বার */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #06b6d4, #2563eb, #7c3aed);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* দুই পাশের সোশ্যাল লিংক (বড় স্ক্রিনে) */
+.side-bar {
+  position: fixed;
+  bottom: 0;
+  z-index: 30;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.side-bar::after {
+  content: "";
+  width: 1px;
+  height: 90px;
+  background: #cbd5e1;
+}
+.side-left { left: 18px; }
+.side-right { right: 18px; }
+.side-bar a {
+  color: var(--muted);
+  transition: all 0.2s;
+}
+.side-bar a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+.side-bar svg { width: 20px; height: 20px; }
+.side-email {
+  writing-mode: vertical-rl;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+
+/* ================= 4. Hero ================= */
+
+/* গাঢ় নেভি ব্যাকগ্রাউন্ড + রঙিন আলো */
+#home {
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 10%, rgba(59, 130, 246, 0.35), transparent 70%),
+    radial-gradient(ellipse 50% 50% at 90% 30%, rgba(139, 92, 246, 0.35), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(6, 182, 212, 0.22), transparent 70%),
+    #0b1026;
+  color: #cbd5e1;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* হালকা গ্রিড, কিনারায় মিলিয়ে যায় */
+#home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+/* নড়তে থাকা তিনটা রঙিন আলো */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+.aurora span {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.3;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.aurora span:nth-child(1) { width: 520px; height: 520px; background: #60a5fa; top: -160px; left: -120px; }
+.aurora span:nth-child(2) { width: 460px; height: 460px; background: #a78bfa; top: 15%; right: -80px; animation-delay: -6s; }
+.aurora span:nth-child(3) { width: 380px; height: 380px; background: #67e8f9; bottom: -140px; left: 35%; animation-delay: -12s; }
+
+/* Hero তে নামের রঙিন অংশ একটু উজ্জ্বল */
+#home .gradient-text {
+  background-image: linear-gradient(90deg, #60a5fa, #c084fc, #22d3ee, #c084fc, #60a5fa);
+}
+
+/* "Open to senior IT leadership roles" সবুজ লেবেল */
+.badge-green {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(110, 231, 183, 0.35);
+}
+
+/* জ্বলা-নেভা সবুজ বিন্দু */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 1.8s infinite;
+}
+
+/* গাঢ় ব্যাকগ্রাউন্ডের বাটন */
+#home .btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+#home .btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+.btn-ghost { color: #e2e8f0; }
+.btn-ghost:hover { color: #fbbf24; }
+
+/* সংখ্যার কার্ড (hero ও experience) */
+.stat-card {
+  padding: 14px 8px;
+  border-radius: 16px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--c);
+  box-shadow: 0 6px 20px -12px rgba(15, 23, 42, 0.15);
+}
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--c);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* hero তে কার্ডগুলো কাঁচের মতো, সংখ্যা উজ্জ্বল রঙে */
+#home .stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: none;
+}
+#home .stat-label { color: #94a3b8; }
+#home .c-blue   .stat-num { color: #60a5fa; }
+#home .c-green  .stat-num { color: #34d399; }
+#home .c-amber  .stat-num { color: #fbbf24; }
+#home .c-violet .stat-num { color: #c084fc; }
+
+/* ছবির চারপাশে ঘুরতে থাকা রঙিন রিং */
+.avatar-ring {
+  padding: 6px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #3b82f6, #8b5cf6, #22d3ee, #fbbf24, #3b82f6);
+  box-shadow: 0 0 80px -10px rgba(139, 92, 246, 0.6);
+  animation: spin 8s linear infinite;
+}
+.avatar-ring img {
+  border: 6px solid #0b1026;
+  animation: spin 8s linear infinite reverse;  /* ছবি নিজে যেন না ঘোরে */
+}
+
+/* ছবির পাশে ভাসমান লেবেল */
+.float-chip {
+  position: absolute;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 25px -10px rgba(15, 23, 42, 0.25);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* নিচে স্ক্রল করার ইশারা */
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  width: 26px;
+  height: 42px;
+  margin-left: -13px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+.scroll-hint::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 4px;
+  background: var(--accent);
+  animation: scrollDot 1.6s infinite;
+}
+
+/* চলমান টুলস স্ট্রিপ */
+.tool-strip {
+  padding: 28px 0;
+  overflow: hidden;
+  text-align: center;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+.tool-strip > p {
+  margin-bottom: 16px;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.marquee {
+  overflow: hidden;
+  /* দুই কিনারায় মিলিয়ে যায় */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-track span {
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--ink);
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  border: 1px solid var(--line);
+}
+
+
+/* ================= 5. About ও Experience ================= */
+
+/* রঙিন কার্ড: উপরে রঙিন দাগ, মাউস নিলে সেই রঙের ছায়া */
+.pillar, .duty-card, .skill-group, .cert-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--c);
+  box-shadow: 0 6px 20px -14px rgba(15, 23, 42, 0.2);
+  transition: all 0.25s;
+}
+.pillar:hover, .duty-card:hover, .skill-group:hover, .cert-card:hover {
+  border-color: var(--c-line);
+  border-top-color: var(--c);
+  box-shadow: 0 18px 40px -20px var(--c);
+}
+
+/* আইকনের রঙিন বক্স */
+.pillar span, .duty-icon, .cert-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: var(--c-soft);
+  border: 1px solid var(--c-line);
+}
+
+/* Quick Facts কার্ড */
+.info-card {
+  position: relative;
+  overflow: hidden;
+}
+.info-card::before {   /* উপরের রঙিন দাগ */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad);
+}
+.info-title {
+  color: var(--ink);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.info-row:last-child { border-bottom: none; padding-bottom: 0; }
+.info-row span:first-child { color: var(--muted); }
+.info-row span:first-child::before {   /* লেবেলের আগে ছোট নীল বিন্দু */
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  vertical-align: middle;
+}
+.info-row span:last-child { color: var(--ink); font-weight: 500; text-align: right; }
+
+/* About এর ৪টা কার্ড */
+.pillar {
+  padding: 22px;
+  border-radius: 18px;
+}
+.pillar:hover { transform: translateY(-4px); }
+.pillar span {
+  width: 52px;
+  height: 52px;
+  font-size: 26px;
+  border-radius: 14px;
+}
+.pillar h3 { color: var(--ink); font-weight: 700; margin: 14px 0 4px; }
+.pillar p { font-size: 14px; color: var(--muted); }
+
+/* Experience এর দায়িত্বের কার্ড */
+.duty-card {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 16px;
+}
+.duty-card:hover { transform: translateY(-3px); }
+.duty-card h4 { color: var(--ink); font-weight: 600; margin-bottom: 4px; }
+.duty-card p { font-size: 14px; color: var(--muted); }
+.duty-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+
+/* ================= 6. Skills ================= */
+
+.skill-group {
+  padding: 24px;
+  border-radius: 20px;
+}
+.skill-group:hover { transform: translateY(-4px); }
+.skill-group h3 {
+  color: var(--c);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* প্রোগ্রেস বার */
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-weight: 500;
+}
+.bar-label span:last-child { color: var(--c); }
+.bar-track {
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--c-soft);
+  box-shadow: inset 0 0 0 1px var(--c-line);
+}
+.bar-fill {
+  width: var(--w);   /* HTML এ style="--w: 95%" দিয়ে দৈর্ঘ্য ঠিক হয় */
+  height: 100%;
+  border-radius: 999px;
+  background: var(--c);
+}
+
+
+/* ================= 7. Projects ================= */
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--c);
+  box-shadow: 0 6px 20px -14px rgba(15, 23, 42, 0.2);
+  transition: all 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px -20px var(--c);
+}
+.project-card img {
+  border-bottom: 1px solid var(--line);
+  background: var(--soft);
+}
+.project-card h3 { color: var(--ink); font-size: 1.2rem; font-weight: 700; }
+.project-card p { font-size: 14px; color: var(--muted); }
+.project-card .project-result { color: var(--c); font-weight: 600; }
+
+/* বাটন/নোট সবসময় কার্ডের একদম নিচে */
+.project-actions {
+  margin-top: auto;
+  padding-top: 20px;
+}
+.project-note {
+  font-family: "JetBrains Mono", monospace;
+  border-top: 1px dashed var(--line);
+}
+
+
+/* ================= 8. Education ================= */
+
+/* টাইমলাইন: বাম পাশে রঙিন দাগ */
+.timeline {
+  padding-left: 28px;
+  border-left: 2px solid;
+  border-image: linear-gradient(180deg, #2563eb, #059669, #d97706, #7c3aed) 1;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+.timeline-item::before {   /* রঙিন গোল বিন্দু */
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 4px var(--c-soft), 0 0 0 5px var(--c-line);
+}
+.timeline-date { color: var(--c); font-size: 13px; font-weight: 500; }
+.timeline-item h3 { color: var(--ink); font-size: 1.1rem; font-weight: 700; margin: 4px 0; }
+.timeline-item p:last-child { color: var(--muted); font-size: 14px; }
+
+/* সার্টিফিকেট কার্ড */
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 16px;
+}
+.cert-card:hover { transform: translateX(4px); }
+.cert-card h3 { color: var(--ink); font-weight: 600; }
+.cert-card p { font-size: 13px; color: var(--muted); }
+.cert-icon {
+  width: 44px;
+  height: 44px;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+
+/* ================= 9. Contact ও Footer ================= */
+
+/* গাঢ় নীল-বেগুনি ব্যাকগ্রাউন্ড */
+#contact {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.35), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(219, 39, 119, 0.25), transparent 40%),
+    linear-gradient(135deg, #1e3a8a, #4c1d95);
+}
+#contact .section-title::after { margin-top: 12px; }
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--ink);
+  transition: color 0.2s;
+}
+a.contact-row:hover { color: var(--c); }
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--c-soft);
+  border: 1px solid var(--c-line);
+}
+
+/* ফর্মের ইনপুট বক্স */
+.input-box {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  color: var(--ink);
+  background: var(--soft);
+  border: 1px solid var(--line);
+  transition: all 0.2s;
+}
+.input-box:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.site-footer {
+  background: #0f172a;
+  border-top: 3px solid;
+  border-image: linear-gradient(90deg, #2563eb, #7c3aed, #06b6d4) 1;
+}
+
+/* উপরে ফেরার বাটন */
+#to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--grad);
+  box-shadow: 0 10px 25px -8px rgba(37, 99, 235, 0.6);
+}
+
+
+/* ================= 10. অ্যানিমেশন ================= */
+
+@keyframes spin      { to { transform: rotate(360deg); } }
+@keyframes float     { 50% { transform: translateY(-10px); } }
+@keyframes shine     { to { background-position: 200% center; } }
+@keyframes marquee   { to { transform: translateX(calc(-50% - 7px)); } }
+@keyframes drift {
+  to { transform: translate(80px, 60px) scale(1.15); }
+}
+@keyframes pulse {
+  from { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  to   { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+}
+@keyframes scrollDot {
+  to { opacity: 0; transform: translateY(14px); }
+}
+
+/* স্ক্রল করলে ফুটে ওঠা (Chrome/Edge এ কাজ করে, বাকিগুলোতে এমনিতেই দেখা যায়) */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 20%;
+  }
+  .bar-fill {
+    animation: bar-grow linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+  #progress {
+    animation: progress-grow linear both;
+    animation-timeline: scroll(root);
+  }
+  #to-top {
+    animation: show-top linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 500px;
+  }
+}
+@keyframes reveal-in     { from { opacity: 0; transform: translateY(30px); } }
+@keyframes bar-grow      { from { width: 0; } }
+@keyframes progress-grow { to { transform: scaleX(1); } }
+@keyframes show-top      { from { opacity: 0; visibility: hidden; } }
+
+/* যারা অ্যানিমেশন বন্ধ রাখেন */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
